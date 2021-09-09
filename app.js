@@ -3,7 +3,39 @@ const app = express();
 const PORT = 3000;
 const mongoose = require("mongoose");
 
-mongoose.connect("");
+/* const linkSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  url: String,
+  click: Number,
+});
+
+const LinkModel = mongoose.model("LinkModel", linkSchema);
+
+//adicionando documento
+
+let link = new LinkModel({
+  title: "progbr",
+  description: "link para o twitter",
+  url: "https://programadorbr.com/?src=adgogbst&gclid=Cj0KCQjw4eaJBhDMARIsANhrQACuABtx_MHnURnmNoU5ZU9qbNNc3__ar4Qvq9OB4ZbgMXN2qIJErX0aAmcNEALw_wcB",
+  click: 0,
+});
+
+////metodo para adicionar no banco de dados
+
+link
+  .save()
+  .then((doc) => {
+    console.log(doc);
+  })
+  .catch((err) => {
+    console.log(err);
+  }); */
+
+mongoose.connect("mongodb://localhost/newlinks", (error, db) => {
+  console.log(error);
+  console.log(db);
+});
 
 app.get("/", (req, res) => {
   res.send("Hello world");
