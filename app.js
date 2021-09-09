@@ -32,6 +32,27 @@ link
     console.log(err);
   }); */
 
+const personSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+});
+
+const Person = mongoose.model("Person", personSchema);
+
+let person = new Person({
+  name: "José",
+  age: 23,
+});
+
+person
+  .save()
+  .then((doc) => {
+    console.log(doc);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
 mongoose.connect("mongodb://localhost/newlinks", (error, db) => {
   console.log(error);
   console.log(db);
