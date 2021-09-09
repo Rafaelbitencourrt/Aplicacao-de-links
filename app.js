@@ -3,11 +3,11 @@ const app = express();
 const PORT = 3000;
 const mongoose = require("mongoose");
 
-/* const linkSchema = new mongoose.Schema({
-  title: String,
+const linkSchema = new mongoose.Schema({
+  title: { type: String, required: true },
   description: String,
-  url: String,
-  click: Number,
+  url: { type: String, required: true },
+  click: { type: Number, default: 0 },
 });
 
 const LinkModel = mongoose.model("LinkModel", linkSchema);
@@ -18,7 +18,6 @@ let link = new LinkModel({
   title: "progbr",
   description: "link para o twitter",
   url: "https://programadorbr.com/?src=adgogbst&gclid=Cj0KCQjw4eaJBhDMARIsANhrQACuABtx_MHnURnmNoU5ZU9qbNNc3__ar4Qvq9OB4ZbgMXN2qIJErX0aAmcNEALw_wcB",
-  click: 0,
 });
 
 ////metodo para adicionar no banco de dados
@@ -30,7 +29,7 @@ link
   })
   .catch((err) => {
     console.log(err);
-  }); */
+  });
 
 const personSchema = new mongoose.Schema({
   name: String,
